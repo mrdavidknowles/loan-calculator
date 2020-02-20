@@ -1,8 +1,8 @@
 // Listen for submit action
-document.getElementById("loan-form").addEventListener("submit", function(e) {
-  document.getElementById("results").style.display = "none";
+document.getElementById('loan-form').addEventListener('submit', function(e) {
+  document.getElementById('results').style.display = 'none';
 
-  document.getElementById("loading").style.display = "block";
+  document.getElementById('loading').style.display = 'block';
 
   setTimeout(calculateResults, 1500);
 
@@ -11,14 +11,14 @@ document.getElementById("loan-form").addEventListener("submit", function(e) {
 
 // Calculate results
 function calculateResults() {
-  console.log("Calculating...");
+  console.log('Calculating...');
 
-  const amount = document.getElementById("amount");
-  const interest = document.getElementById("interest");
-  const years = document.getElementById("years");
-  const monthlyPayment = document.getElementById("monthly-payment");
-  const totalPayment = document.getElementById("total-payment");
-  const totalInterest = document.getElementById("total-interest");
+  const amount = document.getElementById('amount');
+  const interest = document.getElementById('interest');
+  const years = document.getElementById('years');
+  const monthlyPayment = document.getElementById('monthly-payment');
+  const totalPayment = document.getElementById('total-payment');
+  const totalInterest = document.getElementById('total-interest');
 
   const principal = parseFloat(amount.value);
   const calculatedInterest = parseFloat(interest.value) / 100 / 12;
@@ -34,28 +34,28 @@ function calculateResults() {
     totalInterest.value = (monthly * calculatedPayments - principal).toFixed(2);
 
     // Show results
-    document.getElementById("results").style.display = "block";
+    document.getElementById('results').style.display = 'block';
 
     // Hide loader
-    document.getElementById("loading").style.display = "none";
+    document.getElementById('loading').style.display = 'none';
   } else {
-    showError("Please check your numbers");
+    showError('Please check your numbers');
   }
 }
 
 // Show error
 function showError(error) {
-  document.getElementById("results").style.display = "none";
+  document.getElementById('results').style.display = 'none';
 
-  document.getElementById("loading").style.display = "none";
+  document.getElementById('loading').style.display = 'none';
 
-  const errorDiv = document.createElement("div");
+  const errorDiv = document.createElement('div');
 
-  const card = document.querySelector(".card");
+  const card = document.querySelector('.card');
 
-  const heading = document.querySelector(".heading");
+  const heading = document.querySelector('.heading');
 
-  errorDiv.className = "alert alert-danger";
+  errorDiv.className = 'alert alert-danger';
 
   errorDiv.appendChild(document.createTextNode(error));
 
@@ -66,5 +66,5 @@ function showError(error) {
 
 // Clear error
 function clearError() {
-  document.querySelector(".alert").remove();
+  document.querySelector('.alert').remove();
 }
